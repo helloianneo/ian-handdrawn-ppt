@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+
+# Local generation outputs
+generated/
+outputs/
+tmp/
+
+# Editor/project noise
+.idea/
+.vscode/

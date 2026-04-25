@@ -1,0 +1,90 @@
+{
+  "name": "ian-handdrawn-ppt-v3-article-first",
+  "language": "zh-CN",
+  "canvas": {
+    "cover_ratio": "21:9",
+    "cover_recommended_px": "2520x1080",
+    "body_ratio": "16:9",
+    "body_recommended_px": "1920x1080",
+    "presentation_ratio": "16:9",
+    "output": "complete raster page image",
+    "recommended_px": "1920x1080",
+    "diagram_reference_ratio": "small semantic diagram inside wide margins",
+    "body_diagram_occupancy": "50-60% page width and 35-45% page height",
+    "cover_diagram_occupancy": "50-55% page width"
+  },
+  "colors": {
+    "paper": "#FBFAF5",
+    "ink": "#111111",
+    "muted_ink": "#5F5A50",
+    "blue": "#D9E8F6",
+    "green": "#DCEAD6",
+    "peach": "#F5DEB8",
+    "purple": "#E4DCF4",
+    "accent": "#D66F4D"
+  },
+  "master_layout": {
+    "border": "none by default; only use a very faint inset border when explicitly requested",
+    "page_number": "small upper-left, e.g. 04 / 10",
+    "title": "centered medium restrained handwritten Chinese with pale blue underline",
+    "title_scale_rule": "body-page titles must keep the same optical size even when short",
+    "subtitle": "small centered subtitle beneath title",
+    "corner_marks": "very faint pale grey grid, dots, ruler ticks, or construction marks only",
+    "spacing": "large margins and calm negative space",
+    "variation_policy": "fixed outer shell across pages; vary only central semantic diagram area"
+  },
+  "text_budget": {
+    "title": "5-12 Chinese characters preferred",
+    "subtitle": "3-12 Chinese characters or three short terms separated by ·",
+    "main_labels": "2-5 labels per slide",
+    "captions": "0-6 short captions, usually 2-6 Chinese characters each"
+  },
+  "style": {
+    "line": "fine handdrawn near-black stroke",
+    "objects": "detailed object-based diagrams with pencil hatching",
+    "fills": "very light marker-like pastel fills behind labels or tiny emphasis",
+    "characters": "prefer 0; at most 1 tiny reader-proxy character far in a corner",
+    "text": "short exact Chinese text baked into the final image",
+    "props": "blank or simple line marks unless text is explicitly required",
+    "avoid": [
+      "full-page border",
+      "yellow paper",
+      "beige paper",
+      "large central illustrations",
+      "large colorful cards",
+      "oversized body-page titles",
+      "heavy bottom quote boxes",
+      "shadows",
+      "gradients",
+      "neon colors",
+      "brush calligraphy",
+      "cute poster style",
+      "giant fonts",
+      "long paragraphs",
+      "many people",
+      "script-generated style samples",
+      "incorrect or filler Chinese text"
+    ]
+  },
+  "delivery": {
+    "default": "PNG page images plus contact sheet",
+    "article_cover": "21:9 PNG, recommended 2520x1080",
+    "article_body": "16:9 PNG, recommended 1920x1080",
+    "out_of_scope": "editable PPTX, image-based PPTX, PDF export, and presentation/document packaging",
+    "dimension_policy": "report native image dimensions honestly; normalize body illustrations to 1920x1080 and cover images to 2520x1080 only when strict delivery size is requested",
+    "text_fidelity_policy": "try shorter required text and regeneration first; if exact Chinese remains wrong, use deterministic text overlay on the accepted generated base image"
+  },
+  "style_anchor": "assets/reference-handdrawn-article-illustration-style.png",
+  "slide_archetypes": [
+    "cover-metaphor",
+    "single-concept",
+    "left-right-contrast",
+    "horizontal-process",
+    "circular-mechanism",
+    "branching-map",
+    "classification-map",
+    "matrix-table",
+    "main-metaphor",
+    "takeaway"
+  ]
+}
