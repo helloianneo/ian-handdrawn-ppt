@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 
+# Environment variables (never commit)
+.env
+
 # Local generation outputs
 generated/
 outputs/
@@ -10,3 +13,8 @@ tmp/
 # Editor/project noise
 .idea/
 .vscode/
+
+# Sopify runtime state (not versioned)
+.sopify-skills/state/
+.sopify-skills/replay/
+.sopify-skills/plan/_registry.yaml
