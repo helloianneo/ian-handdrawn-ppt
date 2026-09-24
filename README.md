@@ -6,7 +6,7 @@
 
 ---
 
-## 这个仓库是什么
+## 这个仓库是什么?
 
 Ian Handdrawn PPT 是一个 Codex Skill，用来指导 AI Agent 把内容整理成**中文手绘技术解释图**。
 
