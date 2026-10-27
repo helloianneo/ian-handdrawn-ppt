@@ -240,16 +240,22 @@ ian-handdrawn-ppt/
 
 ## 关于作者
 
-**Ian (伊恩)** — 产品设计师 / 一人公司实践者 / AI Builder
+**Ian (伊恩)** — 产品设计师 / AI Builder
 
-用 AI 团队打造一人公司。
+GitHub 万星、Dribbble 万粉，用 AI 做好玩的东西，探索 AI + 自由。
 
-- X/Twitter: [@ianneo_ai](https://x.com/ianneo_ai)
-- 网站: [ianneo.xyz](https://ianneo.xyz)
-- 微信: 17855813746
-- 邮箱: hello.neoc@gmail.com
+- 网站：[ianneo.xyz](https://www.ianneo.xyz)
+- X/Twitter：[@ianneo_ai](https://x.com/ianneo_ai)
+- GitHub：[helloianneo](https://github.com/helloianneo)
+- Indie Builders 社群：[ianneo.xyz/ib](https://ianneo.xyz/ib)
 
-> **🚀 正在开启：内容创作丨AI 工作流围观营，欢迎来玩！** 加微信了解详情。
+交流合作加我微信，备注来意：
+
+<p>
+  <img src="assets/ian-wechat-qr.jpg" alt="Ian 微信二维码" width="120">
+</p>
+
+扫不了就搜微信号 `ianneoxyz`。
 
 ---
 
