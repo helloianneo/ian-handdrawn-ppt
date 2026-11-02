@@ -30,6 +30,7 @@ Load only the references needed for the current task:
 
 Use `assets/theme-tokens.json` as the compact theme token file when writing prompts.
 Use `assets/reference-handdrawn-article-illustration-style.png` as the active style anchor for blog/article cover and body illustrations.
+Use `scripts/atlas-image.mjs` only when the user explicitly selects the Atlas Cloud provider.
 When the current image tool supports local reference images, load or attach this style anchor before generation. When it does not, use the theme tokens plus the reference-match clause in `references/prompt-patterns.md`, and report the style as prompt-matched rather than image-referenced.
 Do not use legacy bordered PPT reference images unless the user explicitly asks to recreate the older bordered look.
 
@@ -68,6 +69,9 @@ Do not use legacy bordered PPT reference images unless the user explicitly asks 
 6. **Build output**
    - For planning-only requests, deliver a structured blueprint with deck type, slide count, title, main point, archetype, content blocks, visual brief, and missing inputs.
    - For production requests, use the built-in image generation model to generate one complete page image per slide/visual. Use one image generation call per distinct page brief, not a generic repeated template.
+   - Keep the built-in image generation model as the default provider. Use Atlas Cloud only when the user explicitly requests it or sets `HANDDRAWN_IMAGE_PROVIDER=atlas`.
+   - For Atlas Cloud, save each complete page prompt to a UTF-8 text file and run `scripts/atlas-image.mjs` once per page. Use `--role cover` for 21:9 covers and `--role body` for 16:9 pages.
+   - The Atlas Cloud path is prompt-matched and does not attach the local style reference. Include the theme tokens and reference-match clause in every prompt, and report this limitation honestly.
    - When the user asks for a cover plus body illustrations, generate the cover as 21:9 and body illustrations as 16:9 unless the user specifies otherwise.
    - Before generating multiple pages, write one compact deck style lock and reuse it verbatim in every page prompt. Add page-specific layout instructions only for the central diagram/content area.
    - Keep all visible Chinese text short and exact in the prompt. Include a `Required text only` list for each page.
@@ -79,6 +83,38 @@ Do not use legacy bordered PPT reference images unless the user explicitly asks 
    - Read `references/output-quality.md`.
    - Check content accuracy, slide rhythm, Chinese text accuracy, visual consistency, style-anchor match, and commercial handoff readiness.
    - If verification fails, revise before final delivery.
+
+## Atlas Cloud Provider
+
+The optional Atlas Cloud path uses the asynchronous Media API and defaults to `bytedance/seedream-v5.0-lite`. It keeps API keys in the environment and writes the exact prompt beside each generated PNG.
+
+| Variable | Required | Default |
+|---|---:|---|
+| `HANDDRAWN_IMAGE_PROVIDER` | No | Built-in image generation; set `atlas` explicitly |
+| `ATLASCLOUD_API_KEY` | For Atlas | None |
+| `ATLASCLOUD_API_BASE_URL` | No | `https://api.atlascloud.ai/api/v1` |
+| `ATLASCLOUD_IMAGE_MODEL` | No | `bytedance/seedream-v5.0-lite` |
+
+Locate `scripts/atlas-image.mjs` relative to this `SKILL.md`, then run one command per page:
+
+```bash
+export HANDDRAWN_IMAGE_PROVIDER=atlas
+export ATLASCLOUD_API_KEY="your-key"
+
+# 21:9 cover, native 4704x2016
+node /absolute/path/to/ian-handdrawn-ppt/scripts/atlas-image.mjs \
+  --prompt-file ./prompts/cover.txt \
+  --output ./images/cover.png \
+  --role cover
+
+# 16:9 body page, native 4096x2304
+node /absolute/path/to/ian-handdrawn-ppt/scripts/atlas-image.mjs \
+  --prompt-file ./prompts/page-01.txt \
+  --output ./images/page-01.png \
+  --role body
+```
+
+The command exits non-zero for API errors, failed predictions, missing output URLs, timeouts, or non-PNG downloads. Do not continue to contact-sheet assembly until every requested page has passed the normal verification gates.
 
 ## Defaults
 
